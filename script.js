@@ -1,6 +1,6 @@
 // Banco de más de 50 preguntas de Administración de Empresas
 const questionBank = [
-    { q: "¿Como se llama Leo?", options: ["Leonardo", "Leopoldo", "Manolito", "No tiene nombre"], correct: 2 },
+    { q: "¿Como se llama Leo?", options: ["Leonardo", "Leopoldo", "Manolito", "No tiene nombre"], correct: 1 },
     { q: "¿Cuáles son las cuatro funciones administrativas básicas según Henri Fayol?", options: ["Planear, Organizar, Dirigir, Controlar", "Producir, Vender, Financiar, Contabilizar", "Diseñar, Probar, Lanzar, Medir", "Analizar, Sintetizar, Evaluar, Controlar"], correct: 0 },
     { q: "¿Qué herramienta se utiliza para analizar fortalezas, oportunidades, debilidades y amenazas?", options: ["Matriz BCG", "Análisis PESTEL", "Matriz FODA (SWOT)", "Diagrama de Ishikawa"], correct: 2 },
     { q: "¿Qué mide la rentabilidad (ROI)?", options: ["La liquidez inmediata de la empresa", "El rendimiento financiero sobre la inversión", "El nivel de satisfacción del cliente", "La rotación de inventarios"], correct: 1 },

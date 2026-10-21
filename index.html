@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Administración de Empresas - De Leo para Alexa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Pantalla 1: Inicio -->
+        <div id="start-screen" class="screen active">
+            <h1>Quiz de Administración</h1>
+            <div class="dedication">✨ De Leo para Alexa ✨<br><small style="font-weight: 400; font-size: 0.85rem;">"Pa' que veas que sí sé improvisar"</small></div>
+            <p class="subtitle">Pon a prueba tus conocimientos administrativos. Cada partida seleccionará 12 preguntas al azar de un banco exclusivo.</p>
+            <button class="btn" id="start-btn">¡Comenzar Quiz!</button>
+        </div>
+
+        <!-- Pantalla 2: Preguntas -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <span id="question-counter">Pregunta 1 de 12</span>
+                <span id="score-tracker">Puntos: 0</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <h2 id="question-text" class="question-text">Aquí va la pregunta...</h2>
+            <div id="options-container" class="options-container">
+                <!-- Opciones generadas por JS -->
+            </div>
+        </div>
+
+        <!-- Pantalla 3: Resultados -->
+        <div id="results-screen" class="screen">
+            <div class="results-card">
+                <h1>¡Quiz Finalizado!</h1>
+                <div class="dedication">✨ Hecho con amor por Leo para Alexa ✨</div>
+                <div class="score-display" id="final-score">0 / 12</div>
+                <p id="result-message" class="result-message">Analizando calificación...</p>
+                <button class="btn" id="restart-btn">Jugar Otra Vez</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

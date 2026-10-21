@@ -1,6 +1,6 @@
 // Banco de más de 50 preguntas de Administración de Empresas
 const questionBank = [
-    { q: "¿Quién es considerado el padre de la administración científica?", options: ["Henri Fayol", "Frederick Taylor", "Max Weber", "Elton Mayo"], correct: 1 },
+    { q: "¿Como se llama Leo?", options: ["Leonardo", "Leopoldo", "Manolito", "No tiene nombre"], correct: 2 },
     { q: "¿Cuáles son las cuatro funciones administrativas básicas según Henri Fayol?", options: ["Planear, Organizar, Dirigir, Controlar", "Producir, Vender, Financiar, Contabilizar", "Diseñar, Probar, Lanzar, Medir", "Analizar, Sintetizar, Evaluar, Controlar"], correct: 0 },
     { q: "¿Qué herramienta se utiliza para analizar fortalezas, oportunidades, debilidades y amenazas?", options: ["Matriz BCG", "Análisis PESTEL", "Matriz FODA (SWOT)", "Diagrama de Ishikawa"], correct: 2 },
     { q: "¿Qué mide la rentabilidad (ROI)?", options: ["La liquidez inmediata de la empresa", "El rendimiento financiero sobre la inversión", "El nivel de satisfacción del cliente", "La rotación de inventarios"], correct: 1 },
@@ -149,13 +149,13 @@ function showResults() {
     let percentage = (score / selectedQuestions.length) * 100;
     let msg = "";
     if (percentage === 100) {
-        msg = "¡Perfecto! Eres una verdadera eminencia en la Administración de Empresas. Alexa lo domina todo. 🌟";
+        msg = "¡Perfecto! Eres una verdadera eminencia en la Administración de Empresas. Leopoldo te aprueba. 🌟";
     } else if (percentage >= 75) {
-        msg = "¡Excelente trabajo! Tienes bases súper sólidas en administración. ¡Mucho talento por aquí! 💼✨";
+        msg = "¡Excelente trabajo! leopoldo . ¡Mucho talento por aquí! 💼✨";
     } else if (percentage >= 50) {
-        msg = "¡Muy bien! Tienes buen tino administrativo, con un poco de repaso quedas al 100%. 📈";
+        msg = "¡Muy bien! Tienes buen tino, con un poco menos de nervios y saber improvisar mas no repites carrera. 📈";
     } else {
-        msg = "¡A repasar los libros de administración! Pero lo importante es la actitud y el intento. 😉💕";
+        msg = "Y Asi dices que sabes, na leopoldo no aprueba. 😉💕";
     }
     resultMessage.textContent = msg;
 }

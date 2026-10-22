@@ -5,26 +5,20 @@ const CORRECT_PASSWORD = "leopoldo", "alexa", "leo", "leopoldito", "201026";
 
 // --- DICCIONARIO DE LOS 20 MENSAJES DESBLOQUEABLES ---
 const milestoneMessages = {
-    1000: "texto1000metros",
-    2500: "texto2500metros",
-    5000: "texto5000metros",
-    7500: "texto7500metros",
-    10000: "texto10000metros",
-    12500: "texto12500metros",
-    15000: "texto15000metros",
-    17500: "texto17500metros",
-    20000: "texto20000metros",
-    22500: "texto22500metros",
-    25000: "texto25000metros",
-    27500: "texto27500metros",
-    30000: "texto30000metros",
-    32500: "texto32500metros",
-    35000: "texto35000metros",
-    37500: "texto37500metros",
-    40000: "texto40000metros",
-    42500: "texto42500metros",
-    45000: "texto45000metros",
-    50000: "texto50000metros"
+    1000: "Niceee, pero falta mucho. Leopoldo te da animos",
+    2500: "Lepoldo dice que ya lo superaste, solo llego a los 7k",
+    5000: "Lepoldo quiere que sepas que gracias por existir",
+    7500: "Leopoldo te da animos te quiere ver feliz",
+    10000: "Leopoldo feliz ya avs en los 10k, gracias por esmerarte",
+    15000: "Leopoldo dice que su cantante favorito es alex ponce. ANIMOOO!!!",
+    20000: "ya casi llegas a la mitad, eres la mejor, leopoldo aprueba",
+    25000: "Vas por la mitad, mereces un abrazo de la amistad",
+    30000: "ya casi llegas pero le sigues debiendo a leopoldo ver cars 1,2y3",
+    35000: "Leopoldo quiere que sepas que llegaste muy lejos y siempre estara orgulloso de ti",
+    40000: "ya estas a 10k de ganar, leopoldo te quiere mucho alexa",
+    45000: "a 5k de ganar, lo mas importante es que me gusta mucho pasar tiempo contigo jeje",
+    50000: "GANASTEEEE, felicidades, Leopoldo te quiere ver cumplir tus sueños asi que nunca dudes en pedirle ayuda si lo necesitas, el siempre estara ahi para ayudarte, 67k?"
+    67000: "Si viste esto es porque entendiste la referencia y ahora si ya no hay nada mas, gracias por jugar esto siempre estara aqui para cuando lo necesites y lo quieras al igual que leopoldo. TQM👍😎🤙"
 };
 
 // Variables del Juego

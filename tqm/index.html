@@ -13,8 +13,22 @@
     <div id="floating-container"></div>
 
     <div class="game-wrapper">
+        <!-- Pantalla de Contraseña -->
+        <div id="password-screen" class="screen active">
+            <div class="header-decoration">🔒 🐧 🗝️ 🐧 🔒</div>
+            <h1 class="game-title">Acceso Restringido</h1>
+            <div class="dedication">✨ Zona Protegida ✨<br><small>"Introduce la contraseña secreta para continuar"</small></div>
+            
+            <div class="password-container">
+                <input type="password" id="password-input" class="password-input" placeholder="Escribe la contraseña...">
+                <p id="password-error" class="password-error"></p>
+            </div>
+
+            <button class="btn" id="password-btn">Desbloquear Juego 🔓</button>
+        </div>
+
         <!-- Pantalla de Inicio -->
-        <div id="start-screen" class="screen active">
+        <div id="start-screen" class="screen">
             <div class="header-decoration">⚡ 🐧 ⚔️ 🐧 ⚡</div>
             <h1 class="game-title">Shadow Jumper</h1>
             <div class="dedication">✨ De Leo para Alexa ✨<br><small>"Pa' que veas que sigo improvisando"</small></div>

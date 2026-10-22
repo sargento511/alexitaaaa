@@ -3,11 +3,7 @@
 const CORRECT_PASSWORDS = ["leopoldo", "alexa", "leo", "leopoldito", "201026"]; 
 // ==========================================
 
-passwordBtn.addEventListener('click', verifyPassword);
-passwordInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') verifyPassword();
-    
-// --- DICCIONARIO DE LOS 20 MENSAJES DESBLOQUEABLES ---
+// --- DICCIONARIO DE LOS MENSAJES DESBLOQUEABLES ---
 const milestoneMessages = {
     1000: "Niceee, pero falta mucho. Leopoldo te da animos",
     2500: "Lepoldo dice que ya lo superaste, solo llego a los 7k",
@@ -21,9 +17,49 @@ const milestoneMessages = {
     35000: "Leopoldo quiere que sepas que llegaste muy lejos y siempre estara orgulloso de ti",
     40000: "ya estas a 10k de ganar, leopoldo te quiere mucho alexa",
     45000: "a 5k de ganar, lo mas importante es que me gusta mucho pasar tiempo contigo jeje",
-    50000: "GANASTEEEE, felicidades, Leopoldo te quiere ver cumplir tus sueños asi que nunca dudes en pedirle ayuda si lo necesitas, el siempre estara ahi para ayudarte, 67k?"
+    50000: "GANASTEEEE, felicidades, Leopoldo te quiere ver cumplir tus sueños asi que nunca dudes en pedirle ayuda si lo necesitas, el siempre estara ahi para ayudarte, 67k?",
     67000: "Si viste esto es porque entendiste la referencia y ahora si ya no hay nada mas, gracias por jugar esto siempre estara aqui para cuando lo necesites y lo quieras al igual que leopoldo. TQM👍😎🤙"
 };
+
+// Elementos del DOM
+const passwordScreen = document.getElementById('password-screen');
+const startScreen = document.getElementById('start-screen');
+const gameScreen = document.getElementById('game-screen');
+const gameoverScreen = document.getElementById('gameover-screen');
+const messageModal = document.getElementById('message-modal');
+
+const passwordInput = document.getElementById('password-input');
+const passwordBtn = document.getElementById('password-btn');
+const passwordError = document.getElementById('password-error');
+
+const startBtn = document.getElementById('start-btn');
+const restartBtn = document.getElementById('restart-btn');
+const closeModalBtn = document.getElementById('close-modal-btn');
+
+const scoreDisplay = document.getElementById('score-display');
+const highscoreDisplay = document.getElementById('highscore-display');
+const finalScore = document.getElementById('final-score');
+
+const modalMilestone = document.getElementById('modal-milestone');
+const modalText = document.getElementById('modal-text');
+
+// Lógica de Verificación de Contraseña
+passwordBtn.addEventListener('click', verifyPassword);
+passwordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') verifyPassword();
+});
+
+function verifyPassword() {
+    const userPass = passwordInput.value.trim().toLowerCase();
+    
+    if (CORRECT_PASSWORDS.includes(userPass)) {
+        passwordScreen.classList.remove('active');
+        startScreen.classList.add('active');
+    } else {
+        passwordError.textContent = "Contraseña incorrecta. Inténtalo de nuevo.";
+        passwordInput.value = "";
+    }
+}
 
 // Variables del Juego
 const canvas = document.getElementById('gameCanvas');
@@ -52,41 +88,6 @@ let platforms = [];
 let particles = [];
 const platformCount = 7;
 const keys = { left: false, right: false };
-
-// Elementos del DOM
-const passwordScreen = document.getElementById('password-screen');
-const startScreen = document.getElementById('start-screen');
-const gameScreen = document.getElementById('game-screen');
-const gameoverScreen = document.getElementById('gameover-screen');
-const messageModal = document.getElementById('message-modal');
-
-const passwordInput = document.getElementById('password-input');
-const passwordBtn = document.getElementById('password-btn');
-const passwordError = document.getElementById('password-error');
-
-const startBtn = document.getElementById('start-btn');
-const restartBtn = document.getElementById('restart-btn');
-const closeModalBtn = document.getElementById('close-modal-btn');
-
-const scoreDisplay = document.getElementById('score-display');
-const highscoreDisplay = document.getElementById('highscore-display');
-const finalScore = document.getElementById('final-score');
-
-const modalMilestone = document.getElementById('modal-milestone');
-const modalText = document.getElementById('modal-text');
-
-function verifyPassword() {
-    // .toLowerCase() para que no importe si escribe Mayúsculas o Minúsculas
-    const userPass = passwordInput.value.trim().toLowerCase();
-    
-    if (CORRECT_PASSWORDS.includes(userPass)) {
-        passwordScreen.classList.remove('active');
-        startScreen.classList.add('active');
-    } else {
-        passwordError.textContent = "Contraseña incorrecta. Inténtalo de nuevo.";
-        passwordInput.value = "";
-    }
-}
 
 // Event Listeners del Juego
 startBtn.addEventListener('click', startGame);

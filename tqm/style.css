@@ -344,7 +344,6 @@ body {
     right: 15px;
     width: 38px;
     height: 38px;
-    /* Runa Angelical vectorial en color morado brillante */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23c77dff'%3E%3Cpath d='M50,5 L58,35 L90,35 L64,55 L74,88 L50,68 L26,88 L36,55 L10,35 L42,35 Z M50,22 L45,40 L28,40 L42,50 L36,70 L50,58 L64,70 L58,50 L72,40 L55,40 Z'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;

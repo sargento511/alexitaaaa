@@ -8,7 +8,7 @@ const milestoneMessages = {
     1000: "Niceee, pero falta mucho. Leopoldo te da animos",
     2500: "Leopoldo te da animos te quiere ver feliz",
     5000: "Lepoldo quiere que sepas que gracias por existir",
-    7500: "Lepoldo dice que ya lo superaste, solo llego a los 7k"",
+    7500: "Lepoldo dice que ya lo superaste, solo llego a los 7k",
     10000: "Leopoldo feliz ya avs en los 10k, gracias por esmerarte",
     15000: "Leopoldo dice que su cantante favorito es alex ponce. ANIMOOO!!!",
     20000: "ya casi llegas a la mitad, eres la mejor, leopoldo aprueba",
@@ -348,7 +348,7 @@ function checkMilestones() {
 function triggerMilestoneModal(milestoneVal, text) {
     isPaused = true;
     modalMilestone.textContent = `✨ A los ${milestoneVal.toLocaleString()} metros:`;
-    modalText.textContent = text;
+    modalText.textcontent = text;
     messageModal.classList.add('active');
 }
 

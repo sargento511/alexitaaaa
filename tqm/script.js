@@ -1,6 +1,6 @@
 // ==========================================
 // 🔑 CAMBIA LA CONTRASEÑA AQUÍ CUANDO QUIERAS
-const CORRECT_PASSWORD = "alexa"; 
+const CORRECT_PASSWORD = "leopoldo"; 
 // ==========================================
 
 // --- DICCIONARIO DE LOS 20 MENSAJES DESBLOQUEABLES ---

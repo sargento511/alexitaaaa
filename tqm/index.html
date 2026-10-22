@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Cazadores de Sombras: Pingu Run - De Leo para Alexa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Capa de Emojis / Partículas Flotantes en el Fondo -->
+    <div id="floating-container"></div>
+
+    <div class="game-wrapper">
+        <!-- Pantalla de Inicio -->
+        <div id="start-screen" class="screen active">
+            <div class="header-decoration">⚡ 🐧 ⚔️ 🐧 ⚡</div>
+            <h1 class="game-title">Shadow Jumper</h1>
+            <div class="dedication">✨ De Leo para Alexa ✨<br><small>"Pa' que veas que sigo improvisando"</small></div>
+            <p class="game-desc">Ayuda al pinguino cazador a ascender por el bosque nocturno. ¡Alcanza los 50,000 metros y desbloquea todos los mensajes secretos!</p>
+            <div class="controls-hint">
+                <span>💻 Usa las <b>Flechas Izq / Der</b> o <b>A / D</b></span>
+                <span>📱 O toca los lados de la pantalla</span>
+            </div>
+            <button class="btn" id="start-btn">¡Comenzar Ascenso!</button>
+        </div>
+
+        <!-- Pantalla del Juego (Canvas) -->
+        <div id="game-screen" class="screen">
+            <div class="hud">
+                <div class="hud-box">
+                    <span class="hud-label">ALTURA</span>
+                    <span id="score-display">0 m</span>
+                </div>
+                <div class="hud-box">
+                    <span class="hud-label">MÁXIMA</span>
+                    <span id="highscore-display">0 m</span>
+                </div>
+            </div>
+
+            <!-- Canvas del Juego -->
+            <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+            <!-- Controles Táctiles para Móvil -->
+            <div class="mobile-controls">
+                <button id="btn-left" class="touch-btn">◀</button>
+                <button id="btn-right" class="touch-btn">▶</button>
+            </div>
+        </div>
+
+        <!-- Pop-up de Mensaje Desbloqueado -->
+        <div id="message-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">✨ ¡NUEVO RECUERDO DESBLOQUEADO! ✨</div>
+                <div id="modal-milestone" class="modal-milestone">A los 1,000 metros:</div>
+                <p id="modal-text" class="modal-text">texto1000metros</p>
+                <button class="btn" id="close-modal-btn">Continuar Ascenso ➔</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Game Over -->
+        <div id="gameover-screen" class="screen">
+            <h2 class="gameover-title">¡Caíste en las Sombras!</h2>
+            <div class="score-final-box">
+                <p>Altura alcanzada:</p>
+                <div id="final-score" class="final-score-num">0 m</div>
+            </div>
+            <p id="gameover-desc" class="gameover-desc">¡Inténtalo de nuevo para seguir desbloqueando más recuerdos!</p>
+            <button class="btn" id="restart-btn">Intentar de Nuevo 🔄</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

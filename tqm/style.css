@@ -331,3 +331,43 @@ body {
     color: #cccccc;
     margin-bottom: 22px;
 }
+/* --- DETALLE VISUAL: RUNAS Y MAGIA (Cazadores de Sombras & Hermosas Criaturas) --- */
+
+/* Marca de agua / Símbolo de Runa estilo Cazadores de Sombras en el fondo del contenedor */
+.game-wrapper::before {
+    content: "⚡ 🪞 🗡️";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Detalle gótico / mágico estilo Hermosas Criaturas en la parte inferior */
+.game-wrapper::after {
+    content: "✨ Caster & Shadow ✨";
+    display: block;
+    margin-top: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--purple-soft);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Efecto de brillo mágico en el título del juego (Runas activas) */
+.game-title {
+    animation: runeGlow 3s infinite alternate ease-in-out;
+}
+
+@keyframes runeGlow {
+    0% {
+        text-shadow: 0 0 10px var(--purple-light), 0 0 20px var(--red-wine);
+    }
+    100% {
+        text-shadow: 0 0 20px var(--purple-soft), 0 0 35px var(--red-wine-glow), 0 0 10px #ffffff;
+    }
+}

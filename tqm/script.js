@@ -1,3 +1,8 @@
+// ==========================================
+// 🔑 CAMBIA LA CONTRASEÑA AQUÍ CUANDO QUIERAS
+const CORRECT_PASSWORD = "alexa"; 
+// ==========================================
+
 // --- DICCIONARIO DE LOS 20 MENSAJES DESBLOQUEABLES ---
 const milestoneMessages = {
     1000: "texto1000metros",
@@ -33,7 +38,6 @@ let score = 0;
 let highScore = 0;
 let unlockedMilestones = new Set();
 
-// Configuración del Pingüino y Juego
 const gravity = 0.38;
 let player = {
     x: 180,
@@ -49,15 +53,18 @@ let player = {
 let platforms = [];
 let particles = [];
 const platformCount = 7;
-
-// Teclas presionadas
 const keys = { left: false, right: false };
 
 // Elementos del DOM
+const passwordScreen = document.getElementById('password-screen');
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
 const gameoverScreen = document.getElementById('gameover-screen');
 const messageModal = document.getElementById('message-modal');
+
+const passwordInput = document.getElementById('password-input');
+const passwordBtn = document.getElementById('password-btn');
+const passwordError = document.getElementById('password-error');
 
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
@@ -70,7 +77,24 @@ const finalScore = document.getElementById('final-score');
 const modalMilestone = document.getElementById('modal-milestone');
 const modalText = document.getElementById('modal-text');
 
-// Event Listeners
+// Lógica de Contraseña
+passwordBtn.addEventListener('click', verifyPassword);
+passwordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') verifyPassword();
+});
+
+function verifyPassword() {
+    const userPass = passwordInput.value.trim();
+    if (userPass === CORRECT_PASSWORD) {
+        passwordScreen.classList.remove('active');
+        startScreen.classList.add('active');
+    } else {
+        passwordError.textContent = "Contraseña incorrecta. Inténtalo de nuevo.";
+        passwordInput.value = "";
+    }
+}
+
+// Event Listeners del Juego
 startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', startGame);
 closeModalBtn.addEventListener('click', resumeGame);
@@ -127,7 +151,6 @@ function startGame() {
 // Crear Plataformas Iniciales
 function createInitialPlatforms() {
     platforms = [];
-    // Plataforma base inicial
     platforms.push({ x: 150, y: 520, width: 100, height: 14, type: 'normal' });
 
     for (let i = 0; i < platformCount; i++) {
@@ -159,7 +182,6 @@ function gameLoop() {
 
 // Actualización de Lógica
 function update() {
-    // Movimiento Horizontal
     if (keys.left) {
         player.vx = -4.8;
         player.facing = 'left';
@@ -172,15 +194,12 @@ function update() {
 
     player.x += player.vx;
 
-    // Efecto pantalla envolvente
     if (player.x < -player.width) player.x = canvas.width;
     if (player.x > canvas.width) player.x = -player.width;
 
-    // Gravedad
     player.vy += gravity;
     player.y += player.vy;
 
-    // Colisión con Plataformas (solo al caer)
     if (player.vy > 0) {
         platforms.forEach(p => {
             if (
@@ -195,7 +214,6 @@ function update() {
         });
     }
 
-    // Mover Plataformas y Cámara hacia arriba
     if (player.y < 260) {
         let diff = 260 - player.y;
         player.y = 260;
@@ -208,7 +226,6 @@ function update() {
             highscoreDisplay.textContent = `${highScore} m`;
         }
 
-        // Mover plataformas
         platforms.forEach(p => {
             p.y += diff;
             if (p.y > canvas.height) {
@@ -219,11 +236,9 @@ function update() {
             }
         });
 
-        // Verificar Mensajes Desbloqueables
         checkMilestones();
     }
 
-    // Mover Plataformas Móviles
     platforms.forEach(p => {
         if (p.type === 'moving') {
             p.x += p.vx;
@@ -231,14 +246,12 @@ function update() {
         }
     });
 
-    // Actualizar Partículas
     particles.forEach((pt, index) => {
         pt.y += pt.vy;
         pt.alpha -= 0.03;
         if (pt.alpha <= 0) particles.splice(index, 1);
     });
 
-    // Caída / Game Over
     if (player.y > canvas.height + 50) {
         gameOver();
     }
@@ -246,23 +259,20 @@ function update() {
 
 // Dibujar en Canvas
 function render() {
-    // Fondo Noche Bosque
     ctx.fillStyle = '#0d0d11';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Estrellas / Destellos de Fondo
     ctx.fillStyle = 'rgba(199, 125, 255, 0.3)';
     ctx.fillRect(50, (score * 0.1) % canvas.height, 2, 2);
     ctx.fillRect(200, (score * 0.15 + 100) % canvas.height, 3, 3);
     ctx.fillRect(320, (score * 0.08 + 200) % canvas.height, 2, 2);
 
-    // Dibujar Plataformas
     platforms.forEach(p => {
         if (p.type === 'moving') {
-            ctx.fillStyle = '#6b0504'; // Rojo Vino
+            ctx.fillStyle = '#6b0504';
             ctx.strokeStyle = '#c77dff';
         } else {
-            ctx.fillStyle = '#1b3b2b'; // Verde Noche
+            ctx.fillStyle = '#1b3b2b';
             ctx.strokeStyle = '#e0aaff';
         }
 
@@ -273,7 +283,6 @@ function render() {
         ctx.stroke();
     });
 
-    // Dibujar Partículas
     particles.forEach(pt => {
         ctx.fillStyle = `rgba(199, 125, 255, ${pt.alpha})`;
         ctx.beginPath();
@@ -281,39 +290,33 @@ function render() {
         ctx.fill();
     });
 
-    // Dibujar Pingüino Cazador
     drawPenguin(player.x, player.y, player.facing);
 }
 
-// Dibujar Pingüino con detalles mágicos / góticos
+// Dibujar Pingüino
 function drawPenguin(x, y, facing) {
     ctx.save();
     ctx.translate(x + player.width / 2, y + player.height / 2);
     if (facing === 'left') ctx.scale(-1, 1);
 
-    // Cuerpo
     ctx.fillStyle = '#111116';
     ctx.beginPath();
     ctx.ellipse(0, 0, 18, 21, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Panza
     ctx.fillStyle = '#f0f0f0';
     ctx.beginPath();
     ctx.ellipse(0, 3, 11, 14, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Bufanda Rojo Vino (Estilo Cazador)
     ctx.fillStyle = '#6b0504';
     ctx.fillRect(-12, -7, 24, 5);
 
-    // Ojos Mágicos Morados
     ctx.fillStyle = '#c77dff';
     ctx.beginPath();
     ctx.arc(6, -8, 3, 0, Math.PI * 2);
     ctx.fill();
 
-    // Pico
     ctx.fillStyle = '#ffb703';
     ctx.beginPath();
     ctx.moveTo(10, -5);
@@ -324,7 +327,6 @@ function drawPenguin(x, y, facing) {
     ctx.restore();
 }
 
-// Crear Partículas de Salto
 function createJumpParticles(x, y) {
     for (let i = 0; i < 6; i++) {
         particles.push({
@@ -337,7 +339,6 @@ function createJumpParticles(x, y) {
     }
 }
 
-// Revisar si alcanzó un hito de distancia
 function checkMilestones() {
     for (let milestone in milestoneMessages) {
         let milestoneVal = parseInt(milestone);
@@ -349,7 +350,6 @@ function checkMilestones() {
     }
 }
 
-// Disparar Pop-up del Mensaje
 function triggerMilestoneModal(milestoneVal, text) {
     isPaused = true;
     modalMilestone.textContent = `✨ A los ${milestoneVal.toLocaleString()} metros:`;
@@ -362,7 +362,6 @@ function resumeGame() {
     isPaused = false;
 }
 
-// Game Over
 function gameOver() {
     isPlaying = false;
     finalScore.textContent = `${score.toLocaleString()} m`;
@@ -370,7 +369,6 @@ function gameOver() {
     gameoverScreen.classList.add('active');
 }
 
-// Partículas de Fondo en la Web
 function createBackgroundParticles() {
     const container = document.getElementById('floating-container');
     const items = ['✨', '🌸', '🔮', '❄️', '👑'];

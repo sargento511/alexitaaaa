@@ -331,34 +331,64 @@ body {
     color: #cccccc;
     margin-bottom: 22px;
 }
-/* --- DETALLE VISUAL: RUNAS Y MAGIA (Cazadores de Sombras & Hermosas Criaturas) --- */
 
-/* Marca de agua / Símbolo de Runa estilo Cazadores de Sombras en el fondo del contenedor */
+/* =============================================================
+   --- DETALLES EVIDENTES DE PELÍCULAS (Cazadores de Sombras & Hermosas Criaturas) ---
+   ============================================================= */
+
+/* 1. RUNA ANGELICAL DE CAZADORES DE SOMBRAS EN LA ESQUINA SUPERIOR DERECHA */
 .game-wrapper::before {
-    content: "⚡ 🪞 🗡️";
+    content: "";
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.1rem;
-    letter-spacing: 4px;
-    opacity: 0.6;
+    top: 12px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    /* Runa Angelical vectorial en color morado brillante */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23c77dff'%3E%3Cpath d='M50,5 L58,35 L90,35 L64,55 L74,88 L50,68 L26,88 L36,55 L10,35 L42,35 Z M50,22 L45,40 L28,40 L42,50 L36,70 L50,58 L64,70 L58,50 L72,40 L55,40 Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px var(--purple-light));
+    animation: runePulse 2.5s infinite ease-in-out;
     pointer-events: none;
 }
 
-/* Detalle gótico / mágico estilo Hermosas Criaturas en la parte inferior */
-.game-wrapper::after {
-    content: "✨ Caster & Shadow ✨";
-    display: block;
-    margin-top: 15px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    color: var(--purple-soft);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    opacity: 0.7;
+@keyframes runePulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 12px var(--purple-soft)); }
 }
 
-/* Efecto de brillo mágico en el título del juego (Runas activas) */
+/* 2. REFERENCIA A HERMOSAS CRIATURAS (Días para la 16ª Luna) EN EL PIE DE PÁGINA */
+.game-wrapper::after {
+    content: "🌙 16th Moon • Light or Dark? 🌙";
+    display: block;
+    margin-top: 16px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    color: var(--purple-soft);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: rgba(107, 5, 4, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px dashed var(--purple-light);
+    box-shadow: 0 0 10px rgba(199, 125, 255, 0.2);
+}
+
+/* 3. LEMA CLÁSICO DE CAZADORES EN LA PANTALLA DE INICIO/CONTRASEÑA */
+.header-decoration::before {
+    content: "« AVE ATQUE VALE »";
+    display: block;
+    font-size: 0.7rem;
+    font-family: 'Cinzel', serif;
+    color: var(--purple-soft);
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+    opacity: 0.9;
+}
+
+/* EFECTO DE RESPLANDOR MÁGICO EN EL TÍTULO */
 .game-title {
     animation: runeGlow 3s infinite alternate ease-in-out;
 }

@@ -348,7 +348,7 @@ function checkMilestones() {
 function triggerMilestoneModal(milestoneVal, text) {
     isPaused = true;
     modalMilestone.textContent = `✨ A los ${milestoneVal.toLocaleString()} metros:`;
-    modalText.textcontent = text;
+    modalText.textContent = text;
     messageModal.classList.add('active');
 }
 

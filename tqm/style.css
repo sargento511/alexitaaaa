@@ -1,5 +1,4 @@
 :root {
-    /* Paleta de colores de Alexa */
     --bg-black: #0d0d11;
     --green-night: #1b3b2b;
     --green-emerald: #2d5a40;
@@ -34,7 +33,6 @@ body {
     position: relative;
 }
 
-/* Partículas Flotantes en el Fondo */
 #floating-container {
     position: fixed;
     top: 0;
@@ -58,7 +56,6 @@ body {
     100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
 }
 
-/* Envoltorio Principal */
 .game-wrapper {
     width: 100%;
     max-width: 440px;
@@ -73,7 +70,6 @@ body {
     backdrop-filter: blur(10px);
 }
 
-/* Pantallas */
 .screen {
     display: none;
 }
@@ -88,7 +84,6 @@ body {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Pantalla de Inicio */
 .header-decoration {
     font-size: 1.2rem;
     margin-bottom: 8px;
@@ -141,7 +136,36 @@ body {
     margin-bottom: 22px;
 }
 
-/* Botón Principal Estilo Rojo Vino */
+/* Estilos de la zona de contraseña */
+.password-container {
+    margin: 20px 0;
+}
+
+.password-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--purple-light);
+    padding: 12px 16px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.password-input:focus {
+    border-color: var(--purple-soft);
+    box-shadow: 0 0 10px rgba(199, 125, 255, 0.5);
+}
+
+.password-error {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    min-height: 20px;
+}
+
 .btn {
     background: linear-gradient(135deg, var(--red-wine) 0%, #800020 100%);
     color: #ffffff;
@@ -162,7 +186,6 @@ body {
     box-shadow: 0 8px 25px rgba(199, 125, 255, 0.4);
 }
 
-/* HUD del Juego */
 .hud {
     display: flex;
     justify-content: space-between;
@@ -193,7 +216,6 @@ body {
     color: #ffffff;
 }
 
-/* Canvas del Juego */
 #gameCanvas {
     background: #000000;
     border-radius: 16px;
@@ -205,7 +227,6 @@ body {
     height: auto;
 }
 
-/* Controles Táctiles Móviles */
 .mobile-controls {
     display: flex;
     justify-content: space-between;
@@ -229,7 +250,6 @@ body {
     color: #ffffff;
 }
 
-/* Ventana Modal del Mensaje */
 .modal {
     display: none;
     position: absolute;
@@ -284,7 +304,6 @@ body {
     border-left: 3px solid var(--red-wine);
 }
 
-/* Game Over */
 .gameover-title {
     font-family: 'Cinzel', serif;
     color: #ff4d4d;

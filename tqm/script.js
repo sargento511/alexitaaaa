@@ -1,8 +1,12 @@
 // ==========================================
-// 🔑 CAMBIA LA CONTRASEÑA AQUÍ CUANDO QUIERAS
-const CORRECT_PASSWORD = "leopoldo", "alexa", "leo", "leopoldito", "201026"; 
+// 🔑 LISTA DE CONTRASEÑAS VÁLIDAS
+const CORRECT_PASSWORDS = ["leopoldo", "alexa", "leo", "leopoldito", "201026"]; 
 // ==========================================
 
+passwordBtn.addEventListener('click', verifyPassword);
+passwordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') verifyPassword();
+    
 // --- DICCIONARIO DE LOS 20 MENSAJES DESBLOQUEABLES ---
 const milestoneMessages = {
     1000: "Niceee, pero falta mucho. Leopoldo te da animos",
@@ -71,15 +75,11 @@ const finalScore = document.getElementById('final-score');
 const modalMilestone = document.getElementById('modal-milestone');
 const modalText = document.getElementById('modal-text');
 
-// Lógica de Contraseña
-passwordBtn.addEventListener('click', verifyPassword);
-passwordInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') verifyPassword();
-});
-
 function verifyPassword() {
-    const userPass = passwordInput.value.trim();
-    if (userPass === CORRECT_PASSWORD) {
+    // .toLowerCase() para que no importe si escribe Mayúsculas o Minúsculas
+    const userPass = passwordInput.value.trim().toLowerCase();
+    
+    if (CORRECT_PASSWORDS.includes(userPass)) {
         passwordScreen.classList.remove('active');
         startScreen.classList.add('active');
     } else {
